@@ -1,7 +1,7 @@
 'use strict';
 
 const components = {
-  button: require('./button')
+  Button: require('./button')
 };
 
 module.exports = components;
