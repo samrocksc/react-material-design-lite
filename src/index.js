@@ -2,7 +2,8 @@
 
 const components = {
   Button: require('./button'),
-  Badge: require('./badge')
+  Badge: require('./badge'),
+  Loading: require('./loading')
 };
 
 module.exports = components;
