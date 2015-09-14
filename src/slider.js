@@ -36,7 +36,7 @@ class Slider extends React.Component {
   }
 }
 
-Slider.protTypes = {
+Slider.propTypes = {
   className: React.PropTypes.string
 };
 

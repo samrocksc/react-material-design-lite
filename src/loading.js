@@ -6,34 +6,27 @@ const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
+const progressBaseClasses = {
+  'mdl-progress': true,
+  'mdl-js-progress': true
+};
+
+const spinnerBaseClasses = {
+  'mdl-spinner': true,
+  'mdl-js-spinner': true
+};
+
 class Loading extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    const { spinner } = props;
-
-    this.baseClasses = {
-      'mdl-progress': true,
-      'mdl-js-progress': true
-    };
-
-    if(spinner) {
-      this.baseClasses = {
-        'mdl-spinner': true,
-        'mdl-js-spinner': true
-      };
-    }
-  }
 
   componentDidMount(){
     const { spinner } = this.props;
 
     const node = React.findDOMNode(this);
-    mdl.upgradeElement(node, 'MaterialProgress');
 
     if(spinner) {
       mdl.upgradeElement(node, 'MaterialSpinner');
+    } else {
+      mdl.upgradeElement(node, 'MaterialProgress');
     }
   }
 
@@ -48,10 +41,13 @@ class Loading extends React.Component {
       className,
       indeterminate,
       active,
+      spinner,
       singleColor
     } = this.props;
 
-    const classes = classnames(this.baseClasses, {
+    const baseClasses = spinner ? spinnerBaseClasses : progressBaseClasses;
+
+    const classes = classnames(baseClasses, {
       'mdl-progress__indeterminate': indeterminate,
       'is-active': active,
       'mdl-spinner--single-color': singleColor
@@ -65,7 +61,7 @@ class Loading extends React.Component {
   }
 }
 
-Loading.protTypes = {
+Loading.propTypes = {
   className: React.PropTypes.string,
   indeterminate: React.PropTypes.bool,
   spinner: React.PropTypes.bool,

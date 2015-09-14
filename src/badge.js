@@ -39,11 +39,11 @@ class Badge extends React.Component {
       <a {...this.props} className={classes}>
         {children}
       </a>
-    )
+    );
   }
 }
 
-Badge.protTypes = {
+Badge.propTypes = {
   href: React.PropTypes.string,
   className: React.PropTypes.string,
   background: React.PropTypes.bool,

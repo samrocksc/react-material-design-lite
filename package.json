@@ -15,7 +15,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "eslint src/**/*.js",
+    "test": "eslint src/*.js",
     "build": "webpack",
     "prepublish": "npm run build"
   },
