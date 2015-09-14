@@ -5,14 +5,14 @@ const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-badge': true
+  'mdl-tooltip': true
 };
 
-class Badge extends React.Component {
+class Tooltip extends React.Component {
 
   componentDidMount(){
     const node = React.findDOMNode(this);
-    mdl.upgradeElement(node, 'MaterialBadge');
+    mdl.upgradeElement(node, 'MaterialTooltip');
   }
 
   componentWillUnmount(){
@@ -24,28 +24,25 @@ class Badge extends React.Component {
     const {
       children,
       className,
-      background = true,
-      overlap
+      large
     } = this.props;
 
     const classes = classnames(baseClasses, {
-      'mdl-badge--no-background': !background,
-      'mdl-badge--overlap': overlap
+      'mdl-tooltip--large': large
     }, className);
 
     return (
-      <a {...this.props} className={classes}>
+      <span {...this.props} className={classes}>
         {children}
-      </a>
+      </span>
     );
   }
 }
 
-Badge.propTypes = {
-  href: React.PropTypes.string,
+Tooltip.propTypes = {
   className: React.PropTypes.string,
-  background: React.PropTypes.bool,
-  overlap: React.PropTypes.bool
+  htmlFor: React.PropTypes.string.isRequired,
+  large: React.PropTypes.bool
 };
 
-module.exports = Badge;
+module.exports = Tooltip;
