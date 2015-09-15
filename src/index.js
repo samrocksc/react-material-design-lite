@@ -6,7 +6,8 @@ const components = {
   Button: require('./button'),
   Badge: require('./badge'),
   Slider: require('./slider'),
-  Loading: require('./loading'),
+  Progress: require('./progress'),
+  Spinner: require('./spinner'),
   Textfield: require('./text-field'),
   Tooltip: require('./tooltip')
 };

@@ -4,28 +4,16 @@ const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
-const progressBaseClasses = {
-  'mdl-progress': true,
-  'mdl-js-progress': true
-};
-
-const spinnerBaseClasses = {
+const baseClasses = {
   'mdl-spinner': true,
   'mdl-js-spinner': true
 };
 
-class Loading extends React.Component {
+class Spinner extends React.Component {
 
   componentDidMount(){
-    const { spinner } = this.props;
-
     const node = React.findDOMNode(this);
-
-    if(spinner) {
-      mdl.upgradeElement(node, 'MaterialSpinner');
-    } else {
-      mdl.upgradeElement(node, 'MaterialProgress');
-    }
+    mdl.upgradeElement(node, 'MaterialSpinner');
   }
 
   componentWillUnmount(){
@@ -37,16 +25,11 @@ class Loading extends React.Component {
     const {
       children,
       className,
-      indeterminate,
       active,
-      spinner,
       singleColor
     } = this.props;
 
-    const baseClasses = spinner ? spinnerBaseClasses : progressBaseClasses;
-
     const classes = classnames(baseClasses, {
-      'mdl-progress__indeterminate': indeterminate,
       'is-active': active,
       'mdl-spinner--single-color': singleColor
     }, className);
@@ -59,12 +42,10 @@ class Loading extends React.Component {
   }
 }
 
-Loading.propTypes = {
+Spinner.propTypes = {
   className: React.PropTypes.string,
-  indeterminate: React.PropTypes.bool,
-  spinner: React.PropTypes.bool,
   active: React.PropTypes.bool,
   singleColor: React.PropTypes.bool
 };
 
-module.exports = Loading;
+module.exports = Spinner;
