@@ -32,7 +32,6 @@ class Textfield extends React.Component {
   render(){
     const {
       className,
-      id,
       type,
       label,
       floatingLabel,
@@ -41,6 +40,10 @@ class Textfield extends React.Component {
       button,
       icon,
       expandableHolder
+    } = this.props;
+
+    let {
+      id
     } = this.props;
 
     const outerClasses = classnames(outerBaseClasses, {
