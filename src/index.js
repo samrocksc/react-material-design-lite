@@ -9,7 +9,11 @@ const components = {
   Progress: require('./progress'),
   Spinner: require('./spinner'),
   Textfield: require('./text-field'),
-  Tooltip: require('./tooltip')
+  Tooltip: require('./tooltip'),
+  Checkbox: require('./checkbox'),
+  Radio: require('./radio'),
+  Switch: require('./switch'),
+  IconToggle: require('./icon-toggle')
 };
 
 module.exports = components;
