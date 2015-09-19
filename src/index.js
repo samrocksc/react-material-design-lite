@@ -13,7 +13,8 @@ const components = {
   Checkbox: require('./checkbox'),
   Radio: require('./radio'),
   Switch: require('./switch'),
-  IconToggle: require('./icon-toggle')
+  IconToggle: require('./icon-toggle'),
+  Table: require('./table')
 };
 
 module.exports = components;
