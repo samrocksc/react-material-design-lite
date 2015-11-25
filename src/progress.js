@@ -12,12 +12,12 @@ const baseClasses = {
 class Progress extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialProgress');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -32,8 +32,11 @@ class Progress extends React.Component {
       'mdl-progress__indeterminate': indeterminate
     }, className);
 
+    const saveRef = (element) => this._element = element;
+
+
     return (
-      <div {...this.props} className={classes}>
+      <div {...this.props} ref={saveRef} className={classes}>
         {children}
       </div>
     );

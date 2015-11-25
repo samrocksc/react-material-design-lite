@@ -14,7 +14,7 @@ class Button extends React.Component {
   componentDidMount(){
     const { ripple } = this.props;
 
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialButton');
 
     if(ripple){
@@ -23,7 +23,7 @@ class Button extends React.Component {
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -52,8 +52,10 @@ class Button extends React.Component {
       'mdl-button--mini-fab': floating && mini
     }, className);
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <button {...this.props} className={classes}>
+      <button {...this.props} ref={saveRef} className={classes}>
         {children}
       </button>
     );

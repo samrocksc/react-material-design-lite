@@ -20,12 +20,12 @@ const labelBaseClasses = {
 class Textfield extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialTextfield');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node= this._element;
     mdl.downgradeElements(node);
   }
 
@@ -45,7 +45,7 @@ class Textfield extends React.Component {
     let {
       id
     } = this.props;
-
+    
     const outerClasses = classnames(outerBaseClasses, {
       'mdl-textfield--floating-label': floatingLabel,
       'mdl-textfield--expandable': expandable,
@@ -81,8 +81,10 @@ class Textfield extends React.Component {
       errorField = (<span className='mdl-textfield__error'>{error}</span>);
     }
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <div {...this.props} className={outerClasses}>
+      <div {...this.props} ref={saveRef} className={outerClasses}>
         {textField}
         {labelField}
         {errorField}

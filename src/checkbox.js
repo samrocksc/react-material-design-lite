@@ -12,16 +12,19 @@ const baseClasses = {
 class Checkbox extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialCheckbox');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
   render(){
+
+    const saveRef = (element) => this._element = element;
+
     const {
       className,
       ripple,
@@ -47,7 +50,7 @@ class Checkbox extends React.Component {
 
     return (
       <label {...this.props} htmlFor={id} className={classes}>
-        <input id={id} type='checkbox' className='mdl-checkbox__input' />
+        <input id={id} ref={saveRef} type='checkbox' className='mdl-checkbox__input' />
         {labelField}
       </label>
     );

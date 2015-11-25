@@ -12,12 +12,12 @@ const baseClasses = {
 class Spinner extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialSpinner');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -34,8 +34,10 @@ class Spinner extends React.Component {
       'mdl-spinner--single-color': singleColor
     }, className);
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <div {...this.props} className={classes}>
+      <div {...this.props} ref={saveRef} className={classes}>
         {children}
       </div>
     );

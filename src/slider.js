@@ -12,12 +12,12 @@ const baseClasses = {
 class Slider extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialSlider');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -28,8 +28,10 @@ class Slider extends React.Component {
 
     const classes = classnames(baseClasses, className);
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <input type="range" {...this.props} className={classes} />
+      <input type="range" ref={saveRef} {...this.props} className={classes} />
     );
   }
 }

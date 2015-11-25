@@ -12,12 +12,12 @@ const baseClasses = {
 class Radio extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialRadio');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -45,8 +45,10 @@ class Radio extends React.Component {
       id = '_' + Math.random().toString(36).slice(2);
     }
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <label {...this.props} htmlFor={id} className={classes}>
+      <label {...this.props} ref={saveRef} htmlFor={id} className={classes}>
         <input id={id} type='radio' name={name} className='mdl-radio__button' />
         {labelField}
       </label>

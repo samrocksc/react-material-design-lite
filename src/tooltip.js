@@ -11,12 +11,12 @@ const baseClasses = {
 class Tooltip extends React.Component {
 
   componentDidMount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.upgradeElement(node, 'MaterialTooltip');
   }
 
   componentWillUnmount(){
-    const node = React.findDOMNode(this);
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 
@@ -31,8 +31,10 @@ class Tooltip extends React.Component {
       'mdl-tooltip--large': large
     }, className);
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <span {...this.props} className={classes}>
+      <span {...this.props} ref={saveRef} className={classes}>
         {children}
       </span>
     );
