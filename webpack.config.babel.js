@@ -34,7 +34,7 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: require.resolve('material-design-lite/material'),
+        test: require.resolve('material-design-lite/material.min'),
         loader: 'exports?componentHandler'
       }
     ]
