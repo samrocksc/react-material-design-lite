@@ -1,5 +1,6 @@
 'use strict';
 
+//TODO it's borked
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
@@ -10,40 +11,31 @@ const baseClasses = {
 
 class Tooltip extends React.Component {
 
-  componentDidMount(){
-    const node = this._element;
-    mdl.upgradeElement(node, 'MaterialTooltip');
-  }
-
-  componentWillUnmount(){
-    const node = this._element;
-    mdl.downgradeElements(node);
-  }
-
   render(){
+    
     const {
       children,
       className,
       large
     } = this.props;
 
+    let { id } = this.props;
+
     const classes = classnames(baseClasses, {
       'mdl-tooltip--large': large
     }, className);
 
-    const saveRef = (element) => this._element = element;
-
     return (
-      <span {...this.props} ref={saveRef} className={classes}>
+      <div htmlFor={id} className={classes}>
         {children}
-      </span>
+      </div>
     );
   }
 }
 
 Tooltip.propTypes = {
   className: React.PropTypes.string,
-  htmlFor: React.PropTypes.string.isRequired,
+  id: React.PropTypes.string.isRequired,
   large: React.PropTypes.bool
 };
 

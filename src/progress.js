@@ -1,4 +1,8 @@
 'use strict';
+// TODO needs to be able to have a width be determined
+// TODO Add Buffering option
+// TODO Option for using spinner instead
+// LINK http://www.getmdl.io/components/index.html#loading-section
 
 const React = require('react');
 const mdl = require('material-design-lite/material.min');

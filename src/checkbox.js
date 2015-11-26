@@ -23,7 +23,7 @@ class Checkbox extends React.Component {
 
   render(){
 
-    const saveRef = (element) => this._element = element;
+
 
     const {
       className,
@@ -48,9 +48,11 @@ class Checkbox extends React.Component {
       id = '_' + Math.random().toString(36).slice(2);
     }
 
+    const saveRef = (element) => this._element = element;
+
     return (
-      <label {...this.props} htmlFor={id} className={classes}>
-        <input id={id} ref={saveRef} type='checkbox' className='mdl-checkbox__input' />
+      <label {...this.props} ref={saveRef} htmlFor={id} className={classes}>
+        <input id={id} type='checkbox' className='mdl-checkbox__input' />
         {labelField}
       </label>
     );
