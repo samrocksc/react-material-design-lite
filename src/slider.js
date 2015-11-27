@@ -1,8 +1,5 @@
 'use strict';
-//TODO add Width
-//TODO min
-//TODO max
-//TODO tabindex
+
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');

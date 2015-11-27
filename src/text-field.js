@@ -1,4 +1,5 @@
 'use strict';
+
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');

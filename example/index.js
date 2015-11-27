@@ -1,6 +1,4 @@
 'use strict';
-//TODO add checked function
-//TODO Make grouping easier
 const React = require('react');
 const ReactDOM = require('react-dom');
 const { Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');

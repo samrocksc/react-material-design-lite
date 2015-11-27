@@ -1,6 +1,5 @@
 'use strict';
 
-//TODO it's borked
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
