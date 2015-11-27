@@ -25,7 +25,7 @@ class Textfield extends React.Component {
   }
 
   componentWillUnmount(){
-    const node= this._element;
+    const node = this._element;
     mdl.downgradeElements(node);
   }
 

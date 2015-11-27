@@ -11,7 +11,6 @@ const baseClasses = {
 class Badge extends React.Component {
 
   render(){
-
     const {
       children,
       className,
@@ -26,7 +25,7 @@ class Badge extends React.Component {
 
     return (
       <a {...this.props} className={classes}>
-      {children}
+        {children}
       </a>
     );
   }

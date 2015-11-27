@@ -34,7 +34,6 @@ class Progress extends React.Component {
 
     const saveRef = (element) => this._element = element;
 
-
     return (
       <div {...this.props} ref={saveRef} className={classes}>
         {children}
