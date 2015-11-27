@@ -9,18 +9,9 @@ const baseClasses = {
 };
 
 class Badge extends React.Component {
-/*
-  componentDidMount(){
-    //const node = this._element;
-    //mdl.upgradeElement(node, 'MaterialBadge');
-  }
 
- componentWillUnmount(){
-    const node = this._element; 
-    mdl.downgradeElements(node);
-  }
-*/
   render(){
+
     const {
       children,
       className,
@@ -33,14 +24,9 @@ class Badge extends React.Component {
       'mdl-badge--overlap': overlap
     }, className);
 
-//    const saveRef = (element) => this._element = element;
-//    <a {...this.props} ref={saveRef} className={classes}>
-//       {children}
-//      </a>
-
     return (
       <a {...this.props} className={classes}>
-       {children}
+      {children}
       </a>
     );
   }

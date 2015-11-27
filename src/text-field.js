@@ -1,5 +1,4 @@
 'use strict';
-//TODO change classname to camelcase
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
@@ -30,6 +29,7 @@ class Textfield extends React.Component {
   }
 
   render(){
+
     const {
       className,
       type,

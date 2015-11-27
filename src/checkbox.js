@@ -23,8 +23,6 @@ class Checkbox extends React.Component {
 
   render(){
 
-
-
     const {
       className,
       ripple,
