@@ -46,7 +46,7 @@ class Textfield extends React.Component {
     let {
       id
     } = this.props;
-    
+
     const outerClasses = classnames(outerBaseClasses, {
       'mdl-textfield--floating-label': floatingLabel,
       'mdl-textfield--expandable': expandable,
