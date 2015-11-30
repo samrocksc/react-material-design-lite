@@ -14,7 +14,6 @@ class Tooltip extends React.Component {
     const {
       children,
       className,
-      htmlFor,
       large
     } = this.props;
 

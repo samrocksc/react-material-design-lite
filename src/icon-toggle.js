@@ -25,7 +25,7 @@ class IconToggle extends React.Component {
     const {
       className,
       ripple,
-      label
+      icon
     } = this.props;
 
     let {
@@ -43,9 +43,9 @@ class IconToggle extends React.Component {
     const saveRef = (element) => this._element = element;
 
     return (
-      <label {...this.props} ref={saveRef}  htmlFor={id} className={classes}>
+      <label {...this.props} ref={saveRef} htmlFor={id} className={classes}>
         <input id={id} type='checkbox' className='mdl-icon-toggle__input' />
-        <span className='mdl-icon-toggle__label'>{label}</span>
+        <span className='mdl-icon-toggle__label react-material-design-lite-icons'>{icon}</span>
       </label>
     );
   }
@@ -55,7 +55,7 @@ IconToggle.propTypes = {
   className: React.PropTypes.string,
   id: React.PropTypes.string,
   ripple: React.PropTypes.bool,
-  label: React.PropTypes.string
+  icon: React.PropTypes.string.isRequired
 };
 
 module.exports = IconToggle;

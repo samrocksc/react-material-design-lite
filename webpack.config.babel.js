@@ -36,6 +36,10 @@ module.exports = {
       {
         test: require.resolve('material-design-lite/material.min'),
         loader: 'exports?componentHandler'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        loader: 'url-loader?limit=1000000'
       }
     ]
   },

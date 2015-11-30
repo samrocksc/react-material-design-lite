@@ -11,7 +11,7 @@ const exampleStyle = {
 }
 
 const exampleTree = (
-  <div style={exampleStyle}> 
+  <div style={exampleStyle}>
     <h1>Examples</h1>
 
     <h4>Badges</h4>
@@ -24,14 +24,14 @@ const exampleTree = (
       <Checkbox />
 
     <h4>Icon Toggle</h4>
-      <IconToggle ripple id='2' label='test' />
+      <IconToggle ripple icon='format_italic' />
       <br/>
 
     <h4>Progress</h4>
       <Progress indeterminate/>
 
     <h4>Radio Buttons</h4>
-      <Radio id='radioTest1' name='radioTest' label='Radio Button 1' value='1' ripple>Test</Radio>
+      <Radio name='radioTest' label='Radio Button 1' value='1' ripple>Test</Radio>
 
     <h4>Sliders</h4>
     <Slider/>
@@ -40,10 +40,10 @@ const exampleTree = (
       <Spinner active/>
 
     <h4>Switches</h4>
-      <Switch id='test' label='Switch' ripple/>
+      <Switch label='Switch' ripple/>
 
     <h4>Input Fields</h4>
-      <Textfield type='text' />
+      <Textfield type='text' label="Example" floatingLabel />
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>
