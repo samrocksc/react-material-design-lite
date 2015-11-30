@@ -47,8 +47,8 @@ const exampleTree = (
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>
-      <Tooltip id='tt2'>Tooltip</Tooltip>
-      
+      <Tooltip htmlFor='tt2'>Tooltip</Tooltip>
+
     <h4>More to come....</h4>
 
   </div>

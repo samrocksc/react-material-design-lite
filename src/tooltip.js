@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react');
-const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -11,30 +10,29 @@ const baseClasses = {
 class Tooltip extends React.Component {
 
   render(){
-    
+
     const {
       children,
       className,
+      htmlFor,
       large
     } = this.props;
-
-    let { id } = this.props;
 
     const classes = classnames(baseClasses, {
       'mdl-tooltip--large': large
     }, className);
 
     return (
-      <div htmlFor={id} className={classes}>
+      <span {...this.props} className={classes}>
         {children}
-      </div>
+      </span>
     );
   }
 }
 
 Tooltip.propTypes = {
   className: React.PropTypes.string,
-  id: React.PropTypes.string.isRequired,
+  htmlFor: React.PropTypes.string.isRequired,
   large: React.PropTypes.bool
 };
 
