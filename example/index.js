@@ -21,7 +21,8 @@ const exampleTree = (
       <Button>Test Button</Button>
 
     <h4>Checkboxes</h4>
-      <Checkbox />
+      <Checkbox label='With Id' id='checkboxId' />
+      <Checkbox label='Without Id' />
 
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
