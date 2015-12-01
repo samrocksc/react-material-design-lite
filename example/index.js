@@ -32,7 +32,8 @@ const exampleTree = (
       <Progress indeterminate/>
 
     <h4>Radio Buttons</h4>
-      <Radio name='radioTest' label='Radio Button 1' value='1' ripple>Test</Radio>
+      <Radio name='radio' label='Radio Button 1' value='1' ripple /><br/>
+      <Radio name='radio' label='Radio Button 2' value='2' ripple />
 
     <h4>Sliders</h4>
     <Slider/>
