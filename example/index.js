@@ -25,7 +25,6 @@ const exampleTree = (
 
     <h4>Icon Toggle</h4>
       <IconToggle ripple icon='format_italic' />
-      <IconToggle ripple id='test' icon='star_rate' />
       <br/>
 
     <h4>Progress</h4>
