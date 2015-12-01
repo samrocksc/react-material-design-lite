@@ -43,6 +43,7 @@ const exampleTree = (
 
     <h4>Switches</h4>
       <Switch label='Switch' ripple/>
+      <Switch id='switchid' label='With Id' ripple/>
 
     <h4>Input Fields</h4>
       <Textfield type='text' label="Example" floatingLabel />
