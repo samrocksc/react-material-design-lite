@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const { Icon, Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
@@ -14,6 +14,9 @@ const exampleTree = (
   <div style={exampleStyle}>
     <h1>Examples</h1>
 
+  <h4>Icons</h4>
+    <Icon>star_rate</Icon>
+
     <h4>Badges</h4>
       <Badge data-badge="2">Badge</Badge>
 
@@ -21,17 +24,20 @@ const exampleTree = (
       <Button>Test Button</Button>
 
     <h4>Checkboxes</h4>
-      <Checkbox />
+      <Checkbox label='With Id' id='checkboxId' />
+      <Checkbox label='Without Id' />
 
     <h4>Icon Toggle</h4>
-      <IconToggle ripple icon='format_italic' />
+      <IconToggle ripple id='testId' icon='star_rate' />
+      <IconToggle ripple icon='star_rate' />
       <br/>
 
     <h4>Progress</h4>
       <Progress indeterminate/>
 
     <h4>Radio Buttons</h4>
-      <Radio name='radioTest' label='Radio Button 1' value='1' ripple>Test</Radio>
+      <Radio name='radio' label='Radio Button 1' value='1' ripple /><br/>
+      <Radio name='radio' label='Radio Button 2' value='2' ripple />
 
     <h4>Sliders</h4>
     <Slider/>
@@ -41,6 +47,7 @@ const exampleTree = (
 
     <h4>Switches</h4>
       <Switch label='Switch' ripple/>
+      <Switch id='switchid' label='With Id' ripple/>
 
     <h4>Input Fields</h4>
       <Textfield type='text' label="Example" floatingLabel />

@@ -4,10 +4,14 @@ const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
-const baseClasses = {
+const labelBaseClasses = {
   'mdl-radio': true,
   'mdl-js-radio': true
 };
+
+const inputBaseClasses = {
+  'mdl-radio__button': true
+}
 
 class Radio extends React.Component {
 
@@ -25,6 +29,7 @@ class Radio extends React.Component {
     const {
       className,
       ripple,
+      name,
       label
     } = this.props;
 
@@ -32,9 +37,11 @@ class Radio extends React.Component {
       id
     } = this.props;
 
-    const classes = classnames(baseClasses, {
+    const labelClasses = classnames(labelBaseClasses, {
       'mdl-js-ripple-effect': ripple
     }, className);
+
+    const inputClasses = classnames(inputBaseClasses)
 
     let labelField;
     if (label) {
@@ -48,8 +55,8 @@ class Radio extends React.Component {
     const saveRef = (element) => this._element = element;
 
     return (
-      <label {...this.props} ref={saveRef} htmlFor={id} className={classes}>
-        <input id={id} type='radio' name={name} className='mdl-radio__button' />
+      <label ref={saveRef} htmlFor={id} className={labelClasses}>
+        <input {...this.props} id={id} type='radio' name={name} className={inputClasses} />
         {labelField}
       </label>
     );

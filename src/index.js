@@ -4,6 +4,7 @@ require('./icons.css');
 require('material-design-lite/material.min.css');
 
 const components = {
+  Icon: require('./icon'),
   Button: require('./button'),
   Badge: require('./badge'),
   Slider: require('./slider'),

@@ -4,9 +4,13 @@ const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
-const baseClasses = {
+const labelBaseClasses = {
   'mdl-icon-toggle': true,
   'mdl-js-icon-toggle': true
+};
+
+const inputBaseClasses = {
+  'mdl-icon-toggle__input': true
 };
 
 class IconToggle extends React.Component {
@@ -32,19 +36,21 @@ class IconToggle extends React.Component {
       id
     } = this.props;
 
-    const classes = classnames(baseClasses, {
-      'mdl-js-ripple-effect': ripple
-    }, className);
-
     if (!id) {
       id = '_' + Math.random().toString(36).slice(2);
     }
 
+    const labelClasses = classnames(labelBaseClasses, {
+      'mdl-js-ripple-effect': ripple
+    });
+
+    const inputClasses = classnames(inputBaseClasses, className);
+
     const saveRef = (element) => this._element = element;
 
     return (
-      <label {...this.props} ref={saveRef} htmlFor={id} className={classes}>
-        <input id={id} type='checkbox' className='mdl-icon-toggle__input' />
+      <label htmlFor={id} ref={saveRef} className={labelClasses}>
+        <input {...this.props} id={id} type='checkbox' className={inputClasses} />
         <span className='mdl-icon-toggle__label react-material-design-lite-icons'>{icon}</span>
       </label>
     );
