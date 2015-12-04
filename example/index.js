@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const { Icon, Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
@@ -13,6 +13,9 @@ const exampleStyle = {
 const exampleTree = (
   <div style={exampleStyle}>
     <h1>Examples</h1>
+
+  <h4>Icons</h4>
+    <Icon>star_rate</Icon>
 
     <h4>Badges</h4>
       <Badge data-badge="2">Badge</Badge>

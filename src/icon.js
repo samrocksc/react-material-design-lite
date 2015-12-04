@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react');
-const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -14,14 +13,13 @@ class Icon extends React.Component {
   render(){
     const {
       children,
+      className
     } = this.props;
 
-    const classes = classnames(baseClasses, {
-      'mdl-badge--overlap': overlap
-    }, className);
+    const classes = classnames(baseClasses, className);
 
     return (
-      <span>
+      <span {...this.props} className={classes}>
         {children}
       </span>
     );
