@@ -13,7 +13,8 @@ class Icon extends React.Component {
     const {
       children,
       className,
-      toggle
+      toggle,
+      name
     } = this.props;
 
     const classes = classnames(baseClasses, {
@@ -22,7 +23,7 @@ class Icon extends React.Component {
 
     return (
       <span {...this.props} className={classes}>
-        {children}
+        {name}
       </span>
     );
   }
@@ -30,7 +31,8 @@ class Icon extends React.Component {
 
 Icon.propTypes = {
   className: React.PropTypes.string,
-  toggle: React.PropTypes.bool
+  toggle: React.PropTypes.bool,
+  name: React.PropTypes.string
 };
 
 module.exports = Icon;
