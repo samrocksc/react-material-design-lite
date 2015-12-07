@@ -11,7 +11,6 @@ class Icon extends React.Component {
 
   render(){
     const {
-      children,
       className,
       toggle,
       name
@@ -32,7 +31,7 @@ class Icon extends React.Component {
 Icon.propTypes = {
   className: React.PropTypes.string,
   toggle: React.PropTypes.bool,
-  name: React.PropTypes.string
+  name: React.PropTypes.string.isRequired
 };
 
 module.exports = Icon;
