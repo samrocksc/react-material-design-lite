@@ -1,14 +1,14 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { Icon, Tooltip, Textfield, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const { TextFieldContainer, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextArea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
   width: '800',
   border: '1px solid black',
   padding: '10px'
-}
+};
 
 const exampleTree = (
   <div style={exampleStyle}>
@@ -52,7 +52,22 @@ const exampleTree = (
       <Switch id='switchid' label='With Id' ripple/>
 
     <h4>Input Fields</h4>
-      <Textfield type='text' label="Example" floatingLabel />
+      <TextFieldContainer>
+        <TextFieldInput/>
+        <TextFieldLabel>Regular Label</TextFieldLabel>
+      </TextFieldContainer>
+      <br/>
+      <TextFieldContainer floating>
+        <TextFieldInput/>
+        <TextFieldLabel>Floating Label</TextFieldLabel>
+      </TextFieldContainer>
+      <br/>
+      <TextFieldContainer>
+        <TextFieldInput pattern="-?[0-9]*(\.[0-9]+)?"/>
+        <TextFieldLabel>Error Message</TextFieldLabel>
+        <TextFieldError>Not a number</TextFieldError>
+      </TextFieldContainer>
+      <br/>
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>

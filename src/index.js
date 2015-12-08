@@ -10,12 +10,16 @@ const components = {
   Slider: require('./slider'),
   Progress: require('./progress'),
   Spinner: require('./spinner'),
-  Textfield: require('./text-field'),
   Tooltip: require('./tooltip'),
   Checkbox: require('./checkbox'),
   Radio: require('./radio'),
   Switch: require('./switch'),
-  IconToggle: require('./icon-toggle')
+  IconToggle: require('./icon-toggle'),
+  TextFieldContainer: require('./text-field-container'),
+  TextFieldError: require('./text-field-error'),
+  TextFieldInput: require('./text-field-input'),
+  TextFieldLabel: require('./text-field-label'),
+  TextFieldTextarea: require('./text-field-textarea')
 };
 
 module.exports = components;

@@ -28,7 +28,6 @@ class TextFieldContainer extends React.Component {
   }
 
   render(){
-
     const {
       children,
       expandable,
@@ -45,9 +44,6 @@ class TextFieldContainer extends React.Component {
 
     const saveRef = (element) => this._element = element;
 
-    console.log('The This>', this);
-    console.log('TextField Props> ', this.props);
-
     return (
       <div {...this.props} ref={saveRef} className={classes}>
         {children}
@@ -56,14 +52,14 @@ class TextFieldContainer extends React.Component {
   }
 }
 
-TextField.propTypes = {
+TextFieldContainer.propTypes = {
   expandable: React.PropTypes.bool,
   icon: React.PropTypes.bool,
   className: React.PropTypes.string,
   floating: React.PropTypes.bool
 };
 
-TextField.childContextTypes = {
+TextFieldContainer.childContextTypes = {
   id: React.PropTypes.string
 };
 
