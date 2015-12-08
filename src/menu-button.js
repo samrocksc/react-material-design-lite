@@ -11,6 +11,11 @@ const baseClasses = {
 };
 
 class MenuButton extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+
+  }
   render() {
     const {
       className,
@@ -24,18 +29,20 @@ class MenuButton extends React.Component {
     } = this.props;
 
     if(!id) {
-      id = '_' + Math.random().toString(36).slice(2);
+      id = this._autoId;
     }
 
     let defaultIcon;
     if(children){
-      defaultIcon = children;
+      defaultIcon = (
+        <Icon name={children}/>
+      );
     } else {
       defaultIcon = (
         <Icon name='more_vert'/>
       );
     }
-    console.log('menu-button>',id);
+
     return (
       <button {...this.props} id={id} className={classes}>
         {defaultIcon}
@@ -45,7 +52,8 @@ class MenuButton extends React.Component {
 }
 
 MenuButton.propTypes = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  id: React.PropTypes.string
 };
 
 module.exports = MenuButton;

@@ -7,7 +7,6 @@ const classnames = require('classnames');
 class Menu extends React.Component {
 
   render(){
-    console.log('Menu>',this._id);
     const {
       children
     } = this.props;

@@ -27,8 +27,8 @@ function Tree(props){
 
     <h4>Dropdowns</h4>
     <Menu>
-      <MenuButton/>
-      <MenuList>
+      <MenuButton id='menutest'/>
+      <MenuList htmlFor='menutest'>
         <MenuListItem>Test</MenuListItem>
       </MenuList>
     </Menu>

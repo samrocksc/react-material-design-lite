@@ -10,8 +10,7 @@ const baseClasses = {
 };
 
 class MenuList extends React.Component {
- render() {
-  console.log('MenuList>',this._id);
+ render(){
   const {
     className,
     children,
@@ -22,13 +21,6 @@ class MenuList extends React.Component {
     htmlFor
   } = this.props;
 
-  let {
-    id
-  } = this.props;
-
-  if(!id) {
-    id = '_' + Math.random().toString(36).slice(2);
-  }
   const classes = classnames(baseClasses, {
     'mdl-js-ripple-effect': ripple,
     'mdl-menu--top-left': topLeft,
@@ -37,7 +29,7 @@ class MenuList extends React.Component {
   }, className);
 
     return (
-      <ul {...this.props} className={classes} htmlFor={this._id}>
+      <ul {...this.props} className={classes} htmlFor={htmlFor}>
         {children}
       </ul>
     );
