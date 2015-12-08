@@ -14,6 +14,10 @@ const inputBaseClasses = {
 };
 
 class Radio extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+  }
 
   componentDidMount(){
     const node = this._element;
@@ -49,7 +53,7 @@ class Radio extends React.Component {
     }
 
     if (!id) {
-      id = '_' + Math.random().toString(36).slice(2);
+      id = this._autoid;
     }
 
     const saveRef = (element) => this._element = element;

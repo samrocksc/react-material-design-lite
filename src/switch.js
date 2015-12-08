@@ -14,6 +14,10 @@ const inputBaseClasses = {
 };
 
 class Switch extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+  }
 
   componentDidMount(){
     const node = this._element;
@@ -48,7 +52,7 @@ class Switch extends React.Component {
     }
 
     if (!id) {
-      id = '_' + Math.random().toString(36).slice(2);
+      id = this._autoId;
     }
 
     const saveRef = (element) => this._element = element;
