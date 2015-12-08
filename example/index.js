@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { TextField, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextarea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const {MenuButton, MenuListItem, MenuList, Menu, TextFieldInput, TextFieldError, TextFieldTextarea, TextField, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
@@ -10,7 +10,8 @@ const exampleStyle = {
   padding: '10px'
 };
 
-const exampleTree = (
+function Tree(props){
+ const exampleTree = (
   <div style={exampleStyle}>
     <h1>Examples</h1>
 
@@ -24,10 +25,24 @@ const exampleTree = (
       <Checkbox label='With Id' id='checkboxId' />
       <Checkbox label='Without Id' />
 
-    <h4>Icons</h4>
-      <Icon name='star_rate'/> Regular Icon
-      <br/>
-      <Icon name='star_rate' toggle/> Toggled
+    <h4>Dropdowns</h4>
+    <Menu>
+      <MenuButton/>
+      <MenuList>
+        <MenuListItem>Test</MenuListItem>
+      </MenuList>
+    </Menu>
+
+    <button id="demo-menu-lower-left" className="mdl-button mdl-js-button mdl-button--icon">
+  <i className="material-icons">more_vert</i>
+</button>
+
+  <ul {...props} className="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" htmlFor="demo-menu-lower-left">
+    <a href="#" className="mdl-menu__item">Some Action</a>
+    <li className="mdl-menu__item">Another Action</li>
+    <li disabled className="mdl-menu__item">Disabled Action</li>
+    <li className="mdl-menu__item">Yet Another Action</li>
+  </ul>
 
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
@@ -81,9 +96,19 @@ const exampleTree = (
 
   </div>
 );
+return exampleTree;
+}
+
 
 const container = document.createElement('div');
 
-ReactDOM.render(exampleTree, container);
+var counter = 0;
+
+ReactDOM.render(<Tree id={counter} />, container);
+setInterval(function(){
+  console.log('ReRendering');
+  counter += 1;
+  ReactDOM.render(<Tree id={counter}/>, container);
+}, 2500);
 
 document.body.appendChild(container);
