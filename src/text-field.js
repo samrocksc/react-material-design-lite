@@ -10,12 +10,11 @@ const baseClasses = {
 };
 
 class TextField extends React.Component {
-
-  getChildContext(){
-  return {
-      id: '_' + Math.random().toString(36).slice(2)
-    };
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
   }
+
 
   componentDidMount(){
     const node = this._element;
@@ -36,6 +35,18 @@ class TextField extends React.Component {
       className
     } = this.props;
 
+    let {id} = this.props;
+
+    if(!id){
+      id = this._autoId;
+    }
+
+    const newChildren = React.Children.map(this.props.children, function(child) {
+      return React.cloneElement(child, {
+        htmlFor: id
+      });
+    });
+
     const classes = classnames(baseClasses, {
       'mdl-textfield--expandable': expandable,
       'mdl-button mdl-js-button mdl-button--icon': icon,
@@ -44,9 +55,11 @@ class TextField extends React.Component {
 
     const saveRef = (element) => this._element = element;
 
+    console.log('TextField This>', this);
+    console.log('TextField id>', this.id);
     return (
       <div {...this.props} ref={saveRef} className={classes}>
-        {children}
+        {newChildren}
       </div>
     );
   }
@@ -56,10 +69,7 @@ TextField.propTypes = {
   expandable: React.PropTypes.bool,
   icon: React.PropTypes.bool,
   className: React.PropTypes.string,
-  floating: React.PropTypes.bool
-};
-
-TextField.childContextTypes = {
+  floating: React.PropTypes.bool,
   id: React.PropTypes.string
 };
 

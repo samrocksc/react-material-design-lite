@@ -12,15 +12,17 @@ class TextFieldLabel extends React.Component {
     const {
       className,
       icon,
-      children
+      children,
+      htmlFor
     } = this.props;
 
     const classes = classnames(baseClasses, {
       'mdl-button mdl-js-button mdl-button--icon': icon
     }, className);
 
+    console.log('TextFieldLabel This>', this);
     return (
-      <label {...this.props} htmlFor={this.context.id} className={classes}>
+      <label {...this.props} htmlFor={htmlFor} className={classes}>
         {children}
       </label>
     );
@@ -28,11 +30,8 @@ class TextFieldLabel extends React.Component {
 }
 
 TextFieldLabel.propTypes = {
-  icon: React.PropTypes.bool
-};
-
-TextFieldLabel.contextTypes = {
-  id: React.PropTypes.string
+  icon: React.PropTypes.bool,
+  htmlFor: React.PropTypes.string
 };
 
 module.exports = TextFieldLabel;
