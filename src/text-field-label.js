@@ -20,7 +20,6 @@ class TextFieldLabel extends React.Component {
       'mdl-button mdl-js-button mdl-button--icon': icon
     }, className);
 
-    console.log('TextFieldLabel This>', this);
     return (
       <label {...this.props} htmlFor={htmlFor} className={classes}>
         {children}

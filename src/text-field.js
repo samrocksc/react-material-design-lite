@@ -10,6 +10,7 @@ const baseClasses = {
 };
 
 class TextField extends React.Component {
+
   constructor(...args){
     super(...args);
     this._autoId = '_' + Math.random().toString(36).slice(2);
@@ -54,8 +55,6 @@ class TextField extends React.Component {
 
     const saveRef = (element) => this._element = element;
 
-    console.log('TextField This>', this);
-    console.log('TextField id>', this.id);
     return (
       <div {...this.props} ref={saveRef} className={classes}>
         {inputChildren}
