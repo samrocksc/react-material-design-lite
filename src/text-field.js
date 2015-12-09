@@ -15,7 +15,6 @@ class TextField extends React.Component {
     this._autoId = '_' + Math.random().toString(36).slice(2);
   }
 
-
   componentDidMount(){
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialTextfield');
@@ -41,7 +40,7 @@ class TextField extends React.Component {
       id = this._autoId;
     }
 
-    const newChildren = React.Children.map(this.props.children, function(child) {
+    const inputChildren = React.Children.map(this.props.children, function(child) {
       return React.cloneElement(child, {
         htmlFor: id
       });
@@ -59,7 +58,7 @@ class TextField extends React.Component {
     console.log('TextField id>', this.id);
     return (
       <div {...this.props} ref={saveRef} className={classes}>
-        {newChildren}
+        {inputChildren}
       </div>
     );
   }

@@ -18,7 +18,7 @@ class TextFieldError extends React.Component {
     const classes = classnames(baseClasses, className);
 
     return (
-      <span {...this.props} id={this.context.id} className={classes}>
+      <span {...this.props} className={classes}>
         {children}
       </span>
     );
