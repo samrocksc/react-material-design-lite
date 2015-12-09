@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { TextFieldContainer, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextArea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const { TextFieldContainer, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextarea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
@@ -68,6 +68,10 @@ const exampleTree = (
         <TextFieldError>Not a number</TextFieldError>
       </TextFieldContainer>
       <br/>
+      <TextFieldContainer>
+        <TextFieldTextarea rows='3'/>
+        <TextFieldLabel>Text Field Text Areas</TextFieldLabel>
+      </TextFieldContainer>
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>
