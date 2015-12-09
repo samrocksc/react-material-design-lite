@@ -28,6 +28,7 @@ class MenuList extends React.Component {
     'mdl-menu--bottom-right': bottomRight
   }, className);
 
+  console.log('MenuList this>',this);
     return (
       <ul {...this.props} className={classes} htmlFor={htmlFor}>
         {children}

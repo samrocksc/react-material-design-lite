@@ -11,36 +11,19 @@ const baseClasses = {
 };
 
 class MenuButton extends React.Component {
-  constructor(...args){
-    super(...args);
-    this._autoId = '_' + Math.random().toString(36).slice(2);
-
-  }
   render() {
     const {
       className,
-      children
-    } = this.props;
-
-    const classes = classnames(baseClasses, className);
-
-    let {
+      children = 'more_vert',
+      classes = classnames(baseClasses, className),
       id
     } = this.props;
 
-    if(!id) {
-      id = this._autoId;
-    }
+    console.log('MenuButton this>',this);
 
     let defaultIcon;
     if(children){
-      defaultIcon = (
-        <Icon name={children}/>
-      );
-    } else {
-      defaultIcon = (
-        <Icon name='more_vert'/>
-      );
+      defaultIcon = <Icon name={children}/>;
     }
 
     return (
