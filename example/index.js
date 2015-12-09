@@ -25,18 +25,6 @@ function Tree(props){
       <Checkbox label='With Id' id='checkboxId' />
       <Checkbox label='Without Id' />
 
-    <h4>Dropdowns</h4>
-    <button id="demo-menu-lower-left" className="mdl-button mdl-js-button mdl-button--icon">
-      <i className="material-icons">more_vert</i>
-    </button>
-
-  <ul {...props} className="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" htmlFor="demo-menu-lower-left">
-    <a href="#" className="mdl-menu__item">Some Action</a>
-    <li className="mdl-menu__item">Another Action</li>
-    <li disabled className="mdl-menu__item">Disabled Action</li>
-    <li className="mdl-menu__item">Yet Another Action</li>
-  </ul>
-
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
       <IconToggle ripple icon='star_rate' />
