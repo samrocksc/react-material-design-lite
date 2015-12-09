@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react');
 const ReactDOM = require('react-dom');
-const { TextFieldContainer, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextarea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
+const { TextField, TextFieldInput, TextFieldError, TextFieldLabel, TextFieldTextarea, Icon, Tooltip, Switch, Spinner, Slider, Radio, Progress, IconToggle, Button, Badge, Checkbox } = require('../');
 
 const exampleStyle = {
   margin: 'auto',
@@ -52,26 +52,26 @@ const exampleTree = (
       <Switch id='switchid' label='With Id' ripple/>
 
     <h4>Input Fields</h4>
-      <TextFieldContainer>
+      <TextField>
         <TextFieldInput/>
         <TextFieldLabel>Regular Label</TextFieldLabel>
-      </TextFieldContainer>
+      </TextField>
       <br/>
-      <TextFieldContainer floating>
+      <TextField floating>
         <TextFieldInput/>
         <TextFieldLabel>Floating Label</TextFieldLabel>
-      </TextFieldContainer>
+      </TextField>
       <br/>
-      <TextFieldContainer>
+      <TextField>
         <TextFieldInput pattern="-?[0-9]*(\.[0-9]+)?"/>
         <TextFieldLabel>Error Message</TextFieldLabel>
         <TextFieldError>Not a number</TextFieldError>
-      </TextFieldContainer>
+      </TextField>
       <br/>
-      <TextFieldContainer>
+      <TextField>
         <TextFieldTextarea rows='3'/>
         <TextFieldLabel>Text Field Text Areas</TextFieldLabel>
-      </TextFieldContainer>
+      </TextField>
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>

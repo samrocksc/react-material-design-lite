@@ -9,7 +9,7 @@ const baseClasses = {
   'mdl-js-textfield': true
 };
 
-class TextFieldContainer extends React.Component {
+class TextField extends React.Component {
 
   getChildContext(){
   return {
@@ -52,15 +52,15 @@ class TextFieldContainer extends React.Component {
   }
 }
 
-TextFieldContainer.propTypes = {
+TextField.propTypes = {
   expandable: React.PropTypes.bool,
   icon: React.PropTypes.bool,
   className: React.PropTypes.string,
   floating: React.PropTypes.bool
 };
 
-TextFieldContainer.childContextTypes = {
+TextField.childContextTypes = {
   id: React.PropTypes.string
 };
 
-module.exports = TextFieldContainer;
+module.exports = TextField;

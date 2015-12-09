@@ -15,7 +15,7 @@ const components = {
   Radio: require('./radio'),
   Switch: require('./switch'),
   IconToggle: require('./icon-toggle'),
-  TextFieldContainer: require('./text-field-container'),
+  TextField: require('./text-field'),
   TextFieldError: require('./text-field-error'),
   TextFieldInput: require('./text-field-input'),
   TextFieldLabel: require('./text-field-label'),
