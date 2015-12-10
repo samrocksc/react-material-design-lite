@@ -37,12 +37,13 @@ class TextField extends React.Component {
     } = this.props;
 
     const inputChildren = React.Children.map(this.props.children, function(child) {
-      return React.cloneElement(child, {
-        htmlFor: id
-      });
+      if(child.type.name === 'TextFieldLabel'){
+        return React.cloneElement(child, {htmlFor: id});
+      } else {
+        return React.cloneElement(child, {id: id});
+      }
     });
 
-    console.log('textfield this>',this);
     const classes = classnames(baseClasses, {
       'mdl-textfield--expandable': expandable,
       'mdl-button mdl-js-button mdl-button--icon': icon,
@@ -64,6 +65,7 @@ TextField.propTypes = {
   icon: React.PropTypes.bool,
   className: React.PropTypes.string,
   floating: React.PropTypes.bool,
+  id: React.PropTypes.string
 };
 
 module.exports = TextField;
