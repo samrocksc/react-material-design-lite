@@ -17,7 +17,7 @@ class TextFieldTextarea extends React.Component {
     const classes = classnames(baseClasses, className);
 
     return (
-      <textarea {...this.props} type='text' className={classes} />
+      <textarea {...this.props} className={classes} />
     );
   }
 }
