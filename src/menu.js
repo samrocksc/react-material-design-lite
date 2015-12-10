@@ -13,17 +13,19 @@ class Menu extends React.Component {
   render(){
     const {
       children,
-      id
+    } = this.props;
+
+    let {
+      id = this._autoId
     } = this.props;
 
     const menuChildren = React.Children.map(this.props.children, function(child) {
-        return React.cloneElement(child, { id: this.id });
+      return React.cloneElement(child, { id: id });
     });
 
-    console.log('menu this>',this);
     return(
       <div>
-        {menuChildren}
+      {menuChildren}
       </div>
     );
   }

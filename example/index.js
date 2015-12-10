@@ -33,12 +33,23 @@ function Tree(props){
     <h4>Dropdowns</h4>
       <Menu id='menutest'>
         <MenuButton/>
-        <MenuList htmlFor='menutest'>
-          <MenuListItem>Test</MenuListItem>
-          <MenuListItem>Item #2</MenuListItem>
+        <MenuList>
+          <MenuListItem>Sepcifying</MenuListItem>
+          <MenuListItem>An ID</MenuListItem>
+          <a className="mdl-menu__item" href='#'>Using a link instead</a>
         </MenuList>
       </Menu>
       <br/>
+      <Menu>
+        <MenuButton/>
+        <MenuList>
+          <MenuListItem>Randomizing</MenuListItem>
+          <MenuListItem>The ID</MenuListItem>
+          <MenuListItem disabled>Something Disabled</MenuListItem>
+        </MenuList>
+      </Menu>
+      <br/>
+
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
       <IconToggle ripple icon='star_rate' />

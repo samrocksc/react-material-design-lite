@@ -15,20 +15,13 @@ class MenuButton extends React.Component {
     const {
       className,
       children = 'more_vert',
-      classes = classnames(baseClasses, className),
-      id
+        classes = classnames(baseClasses, className),
+          id
     } = this.props;
-
-    console.log('MenuButton this>',this);
-
-    let defaultIcon;
-    if(children){
-      defaultIcon = <Icon name={children}/>;
-    }
 
     return (
       <button {...this.props} id={id} className={classes}>
-        {defaultIcon}
+      <Icon name={children}/>
       </button>
     );
   }

@@ -10,28 +10,27 @@ const baseClasses = {
 };
 
 class MenuList extends React.Component {
- render(){
-  const {
-    className,
-    children,
-    ripple,
-    topLeft,
-    topRight,
-    bottomRight,
-    htmlFor
-  } = this.props;
+  render(){
+    const {
+      className,
+      children,
+      ripple,
+      topLeft,
+      topRight,
+      bottomRight,
+      id
+    } = this.props;
 
-  const classes = classnames(baseClasses, {
-    'mdl-js-ripple-effect': ripple,
-    'mdl-menu--top-left': topLeft,
-    'mdl-menu--top-right': topRight,
-    'mdl-menu--bottom-right': bottomRight
-  }, className);
+    const classes = classnames(baseClasses, {
+      'mdl-js-ripple-effect': ripple,
+      'mdl-menu--top-left': topLeft,
+      'mdl-menu--top-right': topRight,
+      'mdl-menu--bottom-right': bottomRight
+    }, className);
 
-  console.log('MenuList this>',this);
     return (
-      <ul {...this.props} className={classes} htmlFor={htmlFor}>
-        {children}
+      <ul {...this.props} className={classes} htmlFor={id}>
+      {children}
       </ul>
     );
   }
