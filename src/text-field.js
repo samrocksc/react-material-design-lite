@@ -3,6 +3,9 @@
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
+const TextFieldLabel = require('./text-field-label');
+const TextFieldTextarea = require('./text-field-textarea');
+const TextFieldInput = require('./text-field-input');
 
 const baseClasses = {
   'mdl-textfield': true,
@@ -10,7 +13,6 @@ const baseClasses = {
 };
 
 class TextField extends React.Component {
-
   constructor(...args){
     super(...args);
     this._autoId = '_' + Math.random().toString(36).slice(2);
@@ -33,20 +35,35 @@ class TextField extends React.Component {
       icon,
       floating,
       className,
-      id = this._autoId
     } = this.props;
 
-    const inputChildren = React.Children.map(this.props.children, function(child) {
-      if(child.type.name === 'TextFieldLabel'){
-        return React.cloneElement(child, {htmlFor: id});
-      } else {
-        return React.cloneElement(child, {id: id});
+    const inputChildren = React.Children.map(this.props.children, (child) => {
+      switch(child.type) {
+        case TextFieldLabel:
+          if(child.props.htmlFor){
+            return child;
+          } else {
+            return React.cloneElement(child, {htmlFor: this._autoId});
+          }
+        case TextFieldInput:
+          if(child.props.id){
+            return child;
+          } else {
+            return React.cloneElement(child, {id: this._autoId});
+          }
+        case TextFieldTextarea:
+          if(child.props.id){
+            return child;
+          } else {
+            return React.cloneElement(child, {id: this._autoId});
+          }
+        default:
+          return child;
       }
     });
 
     const classes = classnames(baseClasses, {
       'mdl-textfield--expandable': expandable,
-      'mdl-button mdl-js-button mdl-button--icon': icon,
       'mdl-textfield--floating-label': floating
     }, className);
 
@@ -62,10 +79,8 @@ class TextField extends React.Component {
 
 TextField.propTypes = {
   expandable: React.PropTypes.bool,
-  icon: React.PropTypes.bool,
   className: React.PropTypes.string,
-  floating: React.PropTypes.bool,
-  id: React.PropTypes.string
+  floating: React.PropTypes.bool
 };
 
 module.exports = TextField;

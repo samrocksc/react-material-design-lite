@@ -23,7 +23,8 @@ class TextFieldTextarea extends React.Component {
 }
 
 TextFieldTextarea.propType = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  id: React.PropTypes.id
 };
 
 module.exports = TextFieldTextarea;

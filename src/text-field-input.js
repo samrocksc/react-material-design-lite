@@ -23,7 +23,8 @@ class TextFieldInput extends React.Component {
 }
 
 TextFieldInput.propType = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  id: React.PropTypes.string
 };
 
 module.exports = TextFieldInput;

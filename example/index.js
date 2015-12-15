@@ -58,8 +58,8 @@ const exampleTree = (
       </TextField>
       <br/>
       <TextField floating>
-        <TextFieldInput/>
-        <TextFieldLabel>Floating Label</TextFieldLabel>
+        <TextFieldInput id='someId'/>
+        <TextFieldLabel htmlFor='someId'>Floating Label</TextFieldLabel>
       </TextField>
       <br/>
       <TextField>
