@@ -33,11 +33,8 @@ class Checkbox extends React.Component {
     const {
       className,
       ripple,
-      label
-    } = this.props;
-
-    let {
-      id
+      label,
+      id = this._autoId
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
@@ -49,10 +46,6 @@ class Checkbox extends React.Component {
     let labelField;
     if (label) {
       labelField = (<span className='mdl-checkbox__label'>{label}</span>);
-    }
-
-    if (!id) {
-      id = this._autoId;
     }
 
     const saveRef = (element) => this._element = element;

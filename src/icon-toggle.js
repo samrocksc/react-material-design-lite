@@ -33,16 +33,9 @@ class IconToggle extends React.Component {
     const {
       className,
       ripple,
-      icon
+      icon,
+      id = this._autoId
     } = this.props;
-
-    let {
-      id
-    } = this.props;
-
-    if (!id) {
-      id = this._autoId;
-    }
 
     const labelClasses = classnames(labelBaseClasses, {
       'mdl-js-ripple-effect': ripple

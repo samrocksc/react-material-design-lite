@@ -34,11 +34,8 @@ class Radio extends React.Component {
       className,
       ripple,
       name,
-      label
-    } = this.props;
-
-    let {
-      id
+      label,
+      id = this._autoId
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
@@ -50,10 +47,6 @@ class Radio extends React.Component {
     let labelField;
     if (label) {
       labelField = (<span className='mdl-radio__label'>{label}</span>);
-    }
-
-    if (!id) {
-      id = this._autoid;
     }
 
     const saveRef = (element) => this._element = element;
