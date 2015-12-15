@@ -4,6 +4,10 @@ require('./icons.css');
 require('material-design-lite/material.min.css');
 
 const components = {
+  MenuButton: require('./menu-button'),
+  MenuListItem: require('./menu-list-item'),
+  MenuList: require('./menu-list'),
+  Menu: require('./menu'),
   Icon: require('./icon'),
   Button: require('./button'),
   Badge: require('./badge'),
