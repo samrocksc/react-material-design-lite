@@ -10,7 +10,8 @@ const exampleStyle = {
   padding: '10px'
 };
 
-const exampleTree = (
+function Tree(props){
+ const exampleTree = (
   <div style={exampleStyle}>
     <h1>Examples</h1>
 
@@ -23,11 +24,6 @@ const exampleTree = (
     <h4>Checkboxes</h4>
       <Checkbox label='With Id' id='checkboxId' />
       <Checkbox label='Without Id' />
-
-    <h4>Icons</h4>
-      <Icon name='star_rate'/> Regular Icon
-      <br/>
-      <Icon name='star_rate' toggle/> Toggled
 
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
@@ -81,9 +77,19 @@ const exampleTree = (
 
   </div>
 );
+return exampleTree;
+}
+
 
 const container = document.createElement('div');
 
-ReactDOM.render(exampleTree, container);
+var counter = 0;
+
+ReactDOM.render(<Tree id={counter} />, container);
+setInterval(function(){
+  console.log('ReRendering');
+  counter += 1;
+  ReactDOM.render(<Tree id={counter}/>, container);
+}, 2500);
 
 document.body.appendChild(container);

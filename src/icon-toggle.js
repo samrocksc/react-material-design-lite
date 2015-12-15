@@ -14,6 +14,10 @@ const inputBaseClasses = {
 };
 
 class IconToggle extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+  }
 
   componentDidMount(){
     const node = this._element;
@@ -29,16 +33,9 @@ class IconToggle extends React.Component {
     const {
       className,
       ripple,
-      icon
+      icon,
+      id = this._autoId
     } = this.props;
-
-    let {
-      id
-    } = this.props;
-
-    if (!id) {
-      id = '_' + Math.random().toString(36).slice(2);
-    }
 
     const labelClasses = classnames(labelBaseClasses, {
       'mdl-js-ripple-effect': ripple

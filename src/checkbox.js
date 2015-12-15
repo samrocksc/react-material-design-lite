@@ -14,6 +14,10 @@ const inputBaseClasses = {
 };
 
 class Checkbox extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+  }
 
   componentDidMount(){
     const node = this._element;
@@ -29,11 +33,8 @@ class Checkbox extends React.Component {
     const {
       className,
       ripple,
-      label
-    } = this.props;
-
-    let {
-      id
+      label,
+      id = this._autoId
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
@@ -45,10 +46,6 @@ class Checkbox extends React.Component {
     let labelField;
     if (label) {
       labelField = (<span className='mdl-checkbox__label'>{label}</span>);
-    }
-
-    if (!id) {
-      id = '_' + Math.random().toString(36).slice(2);
     }
 
     const saveRef = (element) => this._element = element;
