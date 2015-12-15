@@ -37,6 +37,7 @@ class TextField extends React.Component {
     } = this.props;
 
     const inputChildren = React.Children.map(children, (child) => {
+      /* eslint no-fallthrough: 0 */
       switch(child.type) {
         case TextFieldLabel:
           if(child.props.htmlFor){
