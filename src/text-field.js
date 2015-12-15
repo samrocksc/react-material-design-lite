@@ -3,21 +3,20 @@
 const React = require('react');
 const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
+const TextFieldLabel = require('./text-field-label');
+const TextFieldTextarea = require('./text-field-textarea');
+const TextFieldInput = require('./text-field-input');
 
-const outerBaseClasses = {
+const baseClasses = {
   'mdl-textfield': true,
   'mdl-js-textfield': true
 };
 
-const inputBaseClasses = {
-  'mdl-textfield__input': true
-};
-
-const labelBaseClasses = {
-  'mdl-textfield__label': true
-};
-
-class Textfield extends React.Component {
+class TextField extends React.Component {
+  constructor(...args){
+    super(...args);
+    this._autoId = '_' + Math.random().toString(36).slice(2);
+  }
 
   componentDidMount(){
     const node = this._element;
@@ -30,81 +29,57 @@ class Textfield extends React.Component {
   }
 
   render(){
-
     const {
-      className,
-      type,
-      label,
-      floatingLabel,
-      error,
+      children,
       expandable,
-      button,
-      icon,
-      expandableHolder
+      floating,
+      className
     } = this.props;
 
-    let {
-      id
-    } = this.props;
+    const inputChildren = React.Children.map(children, (child) => {
+      switch(child.type) {
+        case TextFieldLabel:
+          if(child.props.htmlFor){
+            return child;
+          } else {
+            return React.cloneElement(child, {htmlFor: this._autoId});
+          }
+        case TextFieldInput:
+          if(child.props.id){
+            return child;
+          } else {
+            return React.cloneElement(child, {id: this._autoId});
+          }
+        case TextFieldTextarea:
+          if(child.props.id){
+            return child;
+          } else {
+            return React.cloneElement(child, {id: this._autoId});
+          }
+        default:
+          return child;
+      }
+    });
 
-    const outerClasses = classnames(outerBaseClasses, {
-      'mdl-textfield--floating-label': floatingLabel,
+    const classes = classnames(baseClasses, {
       'mdl-textfield--expandable': expandable,
-      'mdl-button': button,
-      'mdl-js-button': button,
-      'mdl-button--icon': icon,
-      'mdl-textfield__expandable-holder': expandableHolder
+      'mdl-textfield--floating-label': floating
     }, className);
-
-    const inputClasses = classnames(inputBaseClasses);
-
-    const labelClasses = classnames(labelBaseClasses);
-
-    let textField;
-    let labelField;
-    let errorField;
-
-    if (!id) {
-      id = '_' + Math.random().toString(36).slice(2);
-    }
-
-    if (type === 'textarea') {
-      textField = (<textarea className={inputClasses} id={id} />);
-    } else {
-      textField = (<input className={inputClasses} type={type} id={id} />);
-    }
-
-    if (label) {
-      labelField = (<label className={labelClasses} htmlFor={id}>{label}</label>);
-    }
-
-    if (error) {
-      errorField = (<span className='mdl-textfield__error'>{error}</span>);
-    }
 
     const saveRef = (element) => this._element = element;
 
     return (
-      <div {...this.props} ref={saveRef} className={outerClasses}>
-        {textField}
-        {labelField}
-        {errorField}
+      <div {...this.props} ref={saveRef} className={classes}>
+        {inputChildren}
       </div>
     );
   }
 }
 
-Textfield.propTypes = {
-  className: React.PropTypes.string,
-  id: React.PropTypes.string,
-  type: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string,
-  floatingLabel: React.PropTypes.bool,
-  error: React.PropTypes.string,
+TextField.propTypes = {
   expandable: React.PropTypes.bool,
-  button: React.PropTypes.bool,
-  icon: React.PropTypes.bool,
-  expandableHolder: React.PropTypes.bool
+  className: React.PropTypes.string,
+  floating: React.PropTypes.bool
 };
 
-module.exports = Textfield;
+module.exports = TextField;
