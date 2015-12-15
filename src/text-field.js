@@ -32,12 +32,11 @@ class TextField extends React.Component {
     const {
       children,
       expandable,
-      icon,
       floating,
-      className,
+      className
     } = this.props;
 
-    const inputChildren = React.Children.map(this.props.children, (child) => {
+    const inputChildren = React.Children.map(children, (child) => {
       switch(child.type) {
         case TextFieldLabel:
           if(child.props.htmlFor){
