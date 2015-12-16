@@ -2,7 +2,7 @@
 
 const React = require('react');
 const classnames = require('classnames');
-const Icon = require ('./icon');
+const Icon = require('./icon');
 
 const baseClasses = {
   'mdl-button': true,

@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react');
-const mdl = require('material-design-lite/material.min');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -17,7 +16,7 @@ class MenuListItem extends React.Component {
 
     const classes = classnames(baseClasses, className);
 
-    return(
+    return (
       <li {...this.props} className={classes}>
         {children}
       </li>

@@ -1,7 +1,6 @@
 'use strict';
 
 const React = require('react');
-const classnames = require('classnames');
 const MenuList = require('./menu-list');
 const MenuButton = require('./menu-button');
 
@@ -16,7 +15,7 @@ class Menu extends React.Component {
       children
     } = this.props;
 
-    const menuChildren  = React.Children.map(children, (child) => {
+    const menuChildren = React.Children.map(children, (child) => {
       switch(child.type) {
         case MenuButton:
           if(child.props.id){
@@ -34,7 +33,7 @@ class Menu extends React.Component {
           return child;
       }
     });
-    return(
+    return (
       <div>
         {menuChildren}
       </div>
