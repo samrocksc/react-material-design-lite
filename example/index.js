@@ -27,22 +27,28 @@ function Tree(props){
 
     <h4>Dropdowns</h4>
     <Menu>
+      <MenuButton id='withIcon'><Icon name='star_rate'/></MenuButton>
+      <MenuList htmlFor='withIcon'>
+        <MenuListItem>Test</MenuListItem>
+        <MenuListItem disabled>Disabled</MenuListItem>
+      </MenuList>
+    </Menu>
+    <br/>
+    <Menu>
       <MenuButton id='menutest'/>
       <MenuList htmlFor='menutest'>
         <MenuListItem>Test</MenuListItem>
+        <MenuListItem disabled>Disabled</MenuListItem>
       </MenuList>
     </Menu>
-
-    <button id="demo-menu-lower-left" className="mdl-button mdl-js-button mdl-button--icon">
-  <i className="material-icons">more_vert</i>
-</button>
-
-  <ul {...props} className="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" htmlFor="demo-menu-lower-left">
-    <a href="#" className="mdl-menu__item">Some Action</a>
-    <li className="mdl-menu__item">Another Action</li>
-    <li disabled className="mdl-menu__item">Disabled Action</li>
-    <li className="mdl-menu__item">Yet Another Action</li>
-  </ul>
+    <br/>
+    <Menu>
+      <MenuButton/>
+      <MenuList>
+        <MenuListItem>Test</MenuListItem>
+        <MenuListItem disabled>Disabled</MenuListItem>
+      </MenuList>
+      </Menu>
 
     <h4>Icon Toggle</h4>
       <IconToggle ripple id='testId' icon='star_rate' />
@@ -65,28 +71,6 @@ function Tree(props){
     <h4>Switches</h4>
       <Switch label='Switch' ripple/>
       <Switch id='switchid' label='With Id' ripple/>
-
-    <h4>Input Fields</h4>
-      <TextField>
-        <TextFieldInput/>
-        <TextFieldLabel>Regular Label</TextFieldLabel>
-      </TextField>
-      <br/>
-      <TextField floating>
-        <TextFieldInput id='someId'/>
-        <TextFieldLabel htmlFor='someId'>Floating Label</TextFieldLabel>
-      </TextField>
-      <br/>
-      <TextField>
-        <TextFieldInput pattern="-?[0-9]*(\.[0-9]+)?"/>
-        <TextFieldLabel>Error Message</TextFieldLabel>
-        <TextFieldError>Not a number</TextFieldError>
-      </TextField>
-      <br/>
-      <TextField>
-        <TextFieldTextarea rows='3'/>
-        <TextFieldLabel>Text Field Text Areas</TextFieldLabel>
-      </TextField>
 
     <h4>Tooltips</h4>
       <span id='tt2'>Hover Me</span>
