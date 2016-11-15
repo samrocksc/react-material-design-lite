@@ -49,7 +49,7 @@ class Button extends React.Component {
       'mdl-button--primary': primary,
       'mdl-button--accent': accent,
       'mdl-button--icon': icon,
-      'mdl-button--mini-fab': floating && mini
+      'mdl-button--mini-fab': floating && mini,
     }, className);
 
     const saveRef = element => (this._element = element);
@@ -71,7 +71,8 @@ Button.propTypes = {
   primary: React.PropTypes.bool,
   accent: React.PropTypes.bool,
   icon: React.PropTypes.bool,
-  mini: React.PropTypes.bool
+  mini: React.PropTypes.bool,
+  children: React.PropTypes.any,
 };
 
 module.exports = Button;

@@ -6,6 +6,7 @@
       "node": true
     },
     "rules": {
+      "no-underscore-dangle": "off",
       "jsx-a11y/href-no-hash": "off",
       "class-methods-use-this": "off",
       "react/forbid-prop-types": "off",

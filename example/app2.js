@@ -20,7 +20,6 @@ const {
   Checkbox,
 } = require('../');
 
-
 const exampleStyle = {
   margin: 'auto',
   width: '800px',
@@ -36,30 +35,17 @@ class App extends React.Component {
 
         <h4>Badges</h4>
         <Badge data-badge="2">Badge</Badge>
-        <hr />
 
         <h4>Buttons</h4>
         <Button>Test Button</Button>
-        <ol>
-          <li>floating</li>
-          <li>clored</li>
-          <li>ripple</li>
-          <li>raised</li>
-          <li>primary</li>
-          <li>accent</li>
-          <li>icon</li>
-          <li>floating</li>
-          <li>mini</li>
-        </ol>
-        <hr />
 
         <h4>Checkboxes</h4>
         <Checkbox label="With Id" id="checkboxId" />
         <Checkbox label="Without Id" />
 
         <h4>Icon Toggle</h4>
-        <IconToggle id="testId" icon="format_italic" />
-        <IconToggle ripple icon="format_italic" />
+        <IconToggle ripple id="testId" icon="star_rate" />
+        <IconToggle ripple icon="star_rate" />
         <br />
 
         <h4>Progress</h4>
@@ -108,6 +94,7 @@ class App extends React.Component {
         <h4>More to come....</h4>
 
       </div>
+
     );
   }
 }

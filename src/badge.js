@@ -4,23 +4,25 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-badge': true
+  'mdl-badge': true,
 };
 
 class Badge extends React.Component {
 
-  render(){
+  render() {
     const {
       children,
       className,
       background = true,
-      overlap
+      overlap,
     } = this.props;
+
 
     const classes = classnames(baseClasses, {
       'mdl-badge--no-background': !background,
-      'mdl-badge--overlap': overlap
+      'mdl-badge--overlap': overlap,
     }, className);
+
 
     return (
       <a {...this.props} className={classes}>
@@ -34,7 +36,8 @@ Badge.propTypes = {
   href: React.PropTypes.string,
   className: React.PropTypes.string,
   background: React.PropTypes.bool,
-  overlap: React.PropTypes.bool
+  overlap: React.PropTypes.bool,
+  children: React.PropTypes.string,
 };
 
 module.exports = Badge;

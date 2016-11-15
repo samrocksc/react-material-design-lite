@@ -1,9 +1,9 @@
 'use strict';
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const postcssImport = require('postcss-import');
-const postcssNested = require('postcss-nested');
-const postcssCssnext = require('postcss-cssnext');
+/*const postcssImport = require('postcss-import');*/
+//const postcssNested = require('postcss-nested');
+/*const postcssCssnext = require('postcss-cssnext');*/
 const path = require('path');
 
 module.exports = {
@@ -15,7 +15,6 @@ module.exports = {
     filename: '[name].js',
     libraryTarget: 'commonjs',
     path: __dirname,
-    library: 'ReactMDL',
   },
 
   externals: [
@@ -44,12 +43,12 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: require.resolve('material-design-lite/material'),
+        test: require.resolve('material-design-lite/material.min'),
         loader: 'exports?componentHandler',
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader!css-loader!postcss-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
@@ -59,16 +58,24 @@ module.exports = {
   },
 
   postcss: [
-    postcssImport,
-    postcssNested,
-    postcssCssnext({
-      browsers: ['last 1 versions'],
+    require('postcss-import'),
+    require('postcss-nested'),
+    require('postcss-cssnext')({
+      browsers: ['last 1 versions']
+
     }),
+    require('postcss-inline-svg')({
+      path: 'asset'
+
+    }),
+    require('postcss-svgo')
+
   ],
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name].css')
+
   ],
 
-  devtool: 'source-map',
+  devtool: 'source-map'
 };
