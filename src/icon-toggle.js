@@ -6,11 +6,11 @@ const classnames = require('classnames');
 
 const labelBaseClasses = {
   'mdl-icon-toggle': true,
-  'mdl-js-icon-toggle': true
+  'mdl-js-icon-toggle': true,
 };
 
 const inputBaseClasses = {
-  'mdl-icon-toggle__input': true
+  'mdl-icon-toggle__input': true,
 };
 
 class IconToggle extends React.Component {
@@ -22,6 +22,7 @@ class IconToggle extends React.Component {
   componentDidMount(){
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialIconToggle');
+    console.log('testing');
   }
 
   componentWillUnmount(){
@@ -38,7 +39,7 @@ class IconToggle extends React.Component {
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
-      'mdl-js-ripple-effect': ripple
+      'mdl-js-ripple-effect': ripple,
     });
 
     const inputClasses = classnames(inputBaseClasses, className);

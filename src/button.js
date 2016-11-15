@@ -6,7 +6,7 @@ const classnames = require('classnames');
 
 const baseClasses = {
   'mdl-button': true,
-  'mdl-js-button': true
+  'mdl-js-button': true,
 };
 
 class Button extends React.Component {
@@ -17,7 +17,7 @@ class Button extends React.Component {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialButton');
 
-    if(ripple){
+    if (ripple) {
       mdl.upgradeElement(node, 'MaterialRipple');
     }
   }
@@ -38,7 +38,7 @@ class Button extends React.Component {
       primary,
       accent,
       icon,
-      mini
+      mini,
     } = this.props;
 
     const classes = classnames(baseClasses, {
@@ -52,7 +52,7 @@ class Button extends React.Component {
       'mdl-button--mini-fab': floating && mini
     }, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
       <button {...this.props} ref={saveRef} className={classes}>

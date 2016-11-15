@@ -19,7 +19,7 @@ const components = {
   TextFieldError: require('./text-field-error'),
   TextFieldInput: require('./text-field-input'),
   TextFieldLabel: require('./text-field-label'),
-  TextFieldTextarea: require('./text-field-textarea')
+  TextFieldTextarea: require('./text-field-textarea'),
 };
 
 module.exports = components;
