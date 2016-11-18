@@ -1,9 +1,9 @@
 'use strict';
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-/*const postcssImport = require('postcss-import');*/
-//const postcssNested = require('postcss-nested');
-/*const postcssCssnext = require('postcss-cssnext');*/
+const postcssImport = require('postcss-import');
+const postcssNested = require('postcss-nested');
+const postcssCssnext = require('postcss-cssnext');
 const path = require('path');
 
 module.exports = {
@@ -58,9 +58,9 @@ module.exports = {
   },
 
   postcss: [
-    require('postcss-import'),
-    require('postcss-nested'),
-    require('postcss-cssnext')({
+    postcssImport,
+    postcssNested,
+    postcssCssnext({
       browsers: ['last 1 versions']
 
     }),

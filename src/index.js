@@ -1,9 +1,8 @@
 'use strict';
 
-/* TODO Create a default stylesheet so the module can be used in offline apps as well
- *require('material-design-lite/material.min.css');
- *require('./icons.css');
- */
+// TODO Create a default stylesheet so the module can be used in offline apps as well
+require('material-design-lite/material.min.css');
+require('./icons.css');
 
 /* eslint-disable global-require */
 const components = {
