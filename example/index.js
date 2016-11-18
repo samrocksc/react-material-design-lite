@@ -1,18 +1,5 @@
-'use strict';
-
 const React = require('react');
 const ReactDOM = require('react-dom');
+const App = require('./app');
 
-const Tree = require('./tree');
-
-const container = document.createElement('div');
-
-function render(){
-  console.log('Re-rendering');
-  ReactDOM.render(<Tree />, container);
-}
-
-render();
-setInterval(render, 2500);
-
-document.body.appendChild(container);
+ReactDOM.render(<App />, document.querySelector('#app'));

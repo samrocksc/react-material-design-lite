@@ -4,15 +4,15 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-textfield__error': true
+  'mdl-textfield__error': true,
 };
 
 class TextFieldError extends React.Component {
 
-  render(){
-    const{
+  render() {
+    const {
       children,
-      className
+      className,
     } = this.props;
 
     const classes = classnames(baseClasses, className);
@@ -26,7 +26,8 @@ class TextFieldError extends React.Component {
 }
 
 TextFieldError.propTypes = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  children: React.PropTypes.object,
 };
 
 module.exports = TextFieldError;

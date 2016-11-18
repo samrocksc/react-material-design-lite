@@ -6,28 +6,28 @@ const classnames = require('classnames');
 
 const baseClasses = {
   'mdl-button': true,
-  'mdl-js-button': true
+  'mdl-js-button': true,
 };
 
 class Button extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const { ripple } = this.props;
 
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialButton');
 
-    if(ripple){
+    if (ripple) {
       mdl.upgradeElement(node, 'MaterialRipple');
     }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       children,
       className,
@@ -38,7 +38,8 @@ class Button extends React.Component {
       primary,
       accent,
       icon,
-      mini
+      mini,
+      ...rest
     } = this.props;
 
     const classes = classnames(baseClasses, {
@@ -49,13 +50,13 @@ class Button extends React.Component {
       'mdl-button--primary': primary,
       'mdl-button--accent': accent,
       'mdl-button--icon': icon,
-      'mdl-button--mini-fab': floating && mini
+      'mdl-button--mini-fab': floating && mini,
     }, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
-      <button {...this.props} ref={saveRef} className={classes}>
+      <button {...rest} ref={saveRef} className={classes}>
         {children}
       </button>
     );
@@ -71,7 +72,8 @@ Button.propTypes = {
   primary: React.PropTypes.bool,
   accent: React.PropTypes.bool,
   icon: React.PropTypes.bool,
-  mini: React.PropTypes.bool
+  mini: React.PropTypes.bool,
+  children: React.PropTypes.any,
 };
 
 module.exports = Button;

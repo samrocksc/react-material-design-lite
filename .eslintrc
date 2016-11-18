@@ -1,3 +1,22 @@
 {
-  "extends": "@phated/iceddev"
+  "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "no-underscore-dangle": "off",
+      "jsx-a11y/href-no-hash": "off",
+      "class-methods-use-this": "off",
+      "react/forbid-prop-types": "off",
+      "react/prefer-stateless-function": "off",
+      "react/jsx-filename-extension": "off",
+      "import/no-extraneous-dependencies": "off",
+      strict: "off",
+      prefer-template: "off",
+      "arrow-body-style": "off",
+      "max-len": [2, 120, 2],
+      "camelcase": "off",
+    }
 }

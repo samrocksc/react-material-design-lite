@@ -1,8 +1,10 @@
 'use strict';
 
-require('./icons.css');
+// TODO Create a default stylesheet so the module can be used in offline apps as well
 require('material-design-lite/material.min.css');
+require('./icons.css');
 
+/* eslint-disable global-require */
 const components = {
   Icon: require('./icon'),
   Button: require('./button'),
@@ -19,7 +21,8 @@ const components = {
   TextFieldError: require('./text-field-error'),
   TextFieldInput: require('./text-field-input'),
   TextFieldLabel: require('./text-field-label'),
-  TextFieldTextarea: require('./text-field-textarea')
+  TextFieldTextarea: require('./text-field-textarea'),
 };
+/* eslint-enable global-require */
 
 module.exports = components;

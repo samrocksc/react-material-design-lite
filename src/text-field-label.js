@@ -3,21 +3,21 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-textfield__label': true
+  'mdl-textfield__label': true,
 };
 
 class TextFieldLabel extends React.Component {
 
-  render(){
+  render() {
     const {
       className,
       icon,
       children,
-      htmlFor
+      htmlFor,
     } = this.props;
 
     const classes = classnames(baseClasses, {
-      'mdl-button mdl-js-button mdl-button--icon': icon
+      'mdl-button mdl-js-button mdl-button--icon': icon,
     }, className);
 
     return (
@@ -29,8 +29,10 @@ class TextFieldLabel extends React.Component {
 }
 
 TextFieldLabel.propTypes = {
+  className: React.PropTypes.string,
+  children: React.PropTypes.object,
   icon: React.PropTypes.bool,
-  htmlFor: React.PropTypes.string
+  htmlFor: React.PropTypes.string,
 };
 
 module.exports = TextFieldLabel;

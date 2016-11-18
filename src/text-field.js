@@ -9,54 +9,52 @@ const TextFieldInput = require('./text-field-input');
 
 const baseClasses = {
   'mdl-textfield': true,
-  'mdl-js-textfield': true
+  'mdl-js-textfield': true,
 };
 
 class TextField extends React.Component {
-  constructor(...args){
+  constructor(...args) {
     super(...args);
     this._autoId = '_' + Math.random().toString(36).slice(2);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialTextfield');
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       children,
       expandable,
       floating,
-      className
+      className,
+      ...rest
     } = this.props;
 
     const inputChildren = React.Children.map(children, (child) => {
       /* eslint no-fallthrough: 0 */
-      switch(child.type) {
+      switch (child.type) {
         case TextFieldLabel:
-          if(child.props.htmlFor){
+          if (child.props.htmlFor) {
             return child;
-          } else {
-            return React.cloneElement(child, {htmlFor: this._autoId});
           }
+          return React.cloneElement(child, { htmlFor: this._autoId });
         case TextFieldInput:
-          if(child.props.id){
+          if (child.props.id) {
             return child;
-          } else {
-            return React.cloneElement(child, {id: this._autoId});
           }
+          return React.cloneElement(child, { id: this._autoId });
         case TextFieldTextarea:
-          if(child.props.id){
+          if (child.props.id) {
             return child;
-          } else {
-            return React.cloneElement(child, {id: this._autoId});
           }
+          return React.cloneElement(child, { id: this._autoId });
         default:
           return child;
       }
@@ -64,13 +62,13 @@ class TextField extends React.Component {
 
     const classes = classnames(baseClasses, {
       'mdl-textfield--expandable': expandable,
-      'mdl-textfield--floating-label': floating
+      'mdl-textfield--floating-label': floating,
     }, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
-      <div {...this.props} ref={saveRef} className={classes}>
+      <div {...rest} ref={saveRef} className={classes}>
         {inputChildren}
       </div>
     );
@@ -80,7 +78,8 @@ class TextField extends React.Component {
 TextField.propTypes = {
   expandable: React.PropTypes.bool,
   className: React.PropTypes.string,
-  floating: React.PropTypes.bool
+  floating: React.PropTypes.bool,
+  children: React.PropTypes.any,
 };
 
 module.exports = TextField;

@@ -6,38 +6,39 @@ const classnames = require('classnames');
 
 const baseClasses = {
   'mdl-spinner': true,
-  'mdl-js-spinner': true
+  'mdl-js-spinner': true,
 };
 
 class Spinner extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialSpinner');
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       children,
       className,
       active,
-      singleColor
+      singleColor,
+      ...rest
     } = this.props;
 
     const classes = classnames(baseClasses, {
       'is-active': active,
-      'mdl-spinner--single-color': singleColor
+      'mdl-spinner--single-color': singleColor,
     }, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
-      <div {...this.props} ref={saveRef} className={classes}>
+      <div {...rest} ref={saveRef} className={classes}>
         {children}
       </div>
     );
@@ -47,7 +48,8 @@ class Spinner extends React.Component {
 Spinner.propTypes = {
   className: React.PropTypes.string,
   active: React.PropTypes.bool,
-  singleColor: React.PropTypes.bool
+  singleColor: React.PropTypes.bool,
+  children: React.PropTypes.object,
 };
 
 module.exports = Spinner;

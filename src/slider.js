@@ -6,38 +6,47 @@ const classnames = require('classnames');
 
 const baseClasses = {
   'mdl-slider': true,
-  'mdl-js-slider': true
+  'mdl-js-slider': true,
 };
 
 class Slider extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialSlider');
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
-
-  render(){
+/* eslint-disable no-unused-vars */
+  render() {
     const {
-      className
+      className,
+      sliderWidth,
+      min,
+      max,
+      ...rest
     } = this.props;
 
     const classes = classnames(baseClasses, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
-      <input type="range" ref={saveRef} {...this.props} className={classes} />
+      <p style={{ width: sliderWidth }}>
+        <input {...rest} type="range" ref={saveRef} {...this.props} className={classes} />
+      </p>
     );
   }
 }
-
+/* eslint-enable no-unused-vars */
 Slider.propTypes = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  sliderWidth: React.PropTypes.any,
+  min: React.PropTypes.string,
+  max: React.PropTypes.string,
 };
 
 module.exports = Slider;

@@ -6,54 +6,55 @@ const classnames = require('classnames');
 
 const labelBaseClasses = {
   'mdl-radio': true,
-  'mdl-js-radio': true
+  'mdl-js-radio': true,
 };
 
 const inputBaseClasses = {
-  'mdl-radio__button': true
+  'mdl-radio__button': true,
 };
 
 class Radio extends React.Component {
-  constructor(...args){
+  constructor(...args) {
     super(...args);
     this._autoId = '_' + Math.random().toString(36).slice(2);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialRadio');
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       className,
       ripple,
       name,
       label,
-      id = this._autoId
+      id = this._autoId,
+      ...rest
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
-      'mdl-js-ripple-effect': ripple
+      'mdl-js-ripple-effect': ripple,
     });
 
     const inputClasses = classnames(inputBaseClasses, className);
 
     let labelField;
     if (label) {
-      labelField = (<span className='mdl-radio__label'>{label}</span>);
+      labelField = (<span className="mdl-radio__label">{label}</span>);
     }
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
       <label ref={saveRef} htmlFor={id} className={labelClasses}>
-        <input {...this.props} id={id} type='radio' name={name} className={inputClasses} />
+        <input {...rest} id={id} type="radio" name={name} className={inputClasses} />
         {labelField}
       </label>
     );
@@ -65,7 +66,7 @@ Radio.propTypes = {
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   ripple: React.PropTypes.bool,
-  label: React.PropTypes.string
+  label: React.PropTypes.string,
 };
 
 module.exports = Radio;

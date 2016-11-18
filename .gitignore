@@ -31,5 +31,8 @@ node_modules
 .DS_Store
 
 # Built files
+/build/
 /index.js
+/index.js.map
 /example.js
+/example/build/
