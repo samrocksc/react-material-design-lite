@@ -32,7 +32,7 @@ class Spinner extends React.Component {
 
     const classes = classnames(baseClasses, {
       'is-active': active,
-      'mdl-spinner--single-color': singleColor
+      'mdl-spinner--single-color': singleColor,
     }, className);
 
     const saveRef = element => (this._element = element);

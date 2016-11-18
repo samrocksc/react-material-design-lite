@@ -5,6 +5,7 @@
  *require('./icons.css');
  */
 
+/* eslint-disable global-require */
 const components = {
   Icon: require('./icon'),
   Button: require('./button'),
@@ -23,5 +24,6 @@ const components = {
   TextFieldLabel: require('./text-field-label'),
   TextFieldTextarea: require('./text-field-textarea'),
 };
+/* eslint-enable global-require */
 
 module.exports = components;

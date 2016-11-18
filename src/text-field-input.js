@@ -4,27 +4,29 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-textfield__input': true
+  'mdl-textfield__input': true,
 };
 
 class TextFieldInput extends React.Component {
 
-  render(){
+  render() {
+    /* eslint-disable no-unused-vars */
     const {
-      className
+      className,
+      id,
     } = this.props;
-
+    /* eslint-enable no-unused-vars */
     const classes = classnames(baseClasses, className);
 
     return (
-      <input {...this.props} type='text' className={classes} />
+      <input {...this.props} type="text" className={classes} />
     );
   }
 }
 
-TextFieldInput.propType = {
+TextFieldInput.propTypes = {
   className: React.PropTypes.string,
-  id: React.PropTypes.string
+  id: React.PropTypes.string,
 };
 
 module.exports = TextFieldInput;

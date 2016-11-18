@@ -4,15 +4,18 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-textfield__input': true
+  'mdl-textfield__input': true,
 };
 
 class TextFieldTextarea extends React.Component {
 
-  render(){
+  render() {
+    /* eslint-disable no-unused-vars */
     const {
-      className
+      className,
+      id,
     } = this.props;
+    /* eslint-enable no-unused-vars */
 
     const classes = classnames(baseClasses, className);
 
@@ -22,9 +25,9 @@ class TextFieldTextarea extends React.Component {
   }
 }
 
-TextFieldTextarea.propType = {
+TextFieldTextarea.propTypes = {
   className: React.PropTypes.string,
-  id: React.PropTypes.id
+  id: React.PropTypes.id,
 };
 
 module.exports = TextFieldTextarea;

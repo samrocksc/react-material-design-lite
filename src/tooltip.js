@@ -10,15 +10,17 @@ const baseClasses = {
 class Tooltip extends React.Component {
 
   render() {
-
+    /* eslint-disable no-unused-vars */
     const {
       children,
       className,
       large,
+      htmlFor,
     } = this.props;
+    /* eslint-enable no-unused-vars */
 
     const classes = classnames(baseClasses, {
-      'mdl-tooltip--large': large
+      'mdl-tooltip--large': large,
     }, className);
 
     return (
