@@ -35,6 +35,7 @@ class IconToggle extends React.Component {
       ripple,
       icon,
       id = this._autoId,
+      ...rest
     } = this.props;
 
     const labelClasses = classnames(labelBaseClasses, {
@@ -47,7 +48,7 @@ class IconToggle extends React.Component {
 
     return (
       <label htmlFor={id} ref={saveRef} className={labelClasses}>
-        <input {...this.props} id={id} type="checkbox" className={inputClasses} />
+        <input {...rest} id={id} type="checkbox" className={inputClasses} />
         <i className="mdl-icon-toggle__label material-icons">{icon}</i>
       </label>
     );

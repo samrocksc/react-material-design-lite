@@ -6,36 +6,37 @@ const classnames = require('classnames');
 
 const baseClasses = {
   'mdl-progress': true,
-  'mdl-js-progress': true
+  'mdl-js-progress': true,
 };
 
 class Progress extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const node = this._element;
     mdl.upgradeElement(node, 'MaterialProgress');
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       children,
       className,
-      indeterminate
+      indeterminate,
+      ...rest
     } = this.props;
 
     const classes = classnames(baseClasses, {
-      'mdl-progress__indeterminate': indeterminate
+      'mdl-progress__indeterminate': indeterminate,
     }, className);
 
-    const saveRef = (element) => this._element = element;
+    const saveRef = element => (this._element = element);
 
     return (
-      <div {...this.props} ref={saveRef} className={classes}>
+      <div {...rest} ref={saveRef} className={classes}>
         {children}
       </div>
     );
@@ -43,8 +44,9 @@ class Progress extends React.Component {
 }
 
 Progress.propTypes = {
+  children: React.PropTypes.object,
   className: React.PropTypes.string,
-  indeterminate: React.PropTypes.bool
+  indeterminate: React.PropTypes.bool,
 };
 
 module.exports = Progress;

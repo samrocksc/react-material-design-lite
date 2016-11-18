@@ -39,7 +39,7 @@ class App extends React.Component {
         <hr />
 
         <h4>Buttons</h4>
-        <Button>Test Button</Button>
+        <Button ripple>Test Button</Button>
         <ol>
           <li>floating</li>
           <li>clored</li>
@@ -66,11 +66,11 @@ class App extends React.Component {
         <Progress indeterminate />
 
         <h4>Radio Buttons</h4>
-        <Radio name="radio" label="Radio Button 1" value="1" ripple /><br/>
+        <Radio name="radio" label="Radio Button 1" value="1" ripple /><br />
         <Radio name="radio" label="Radio Button 2" value="2" ripple />
 
         <h4>Sliders</h4>
-        <Slider />
+        <Slider min="0" max="100" />
 
         <h4>Spinners</h4>
         <Spinner active />

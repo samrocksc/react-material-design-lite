@@ -4,17 +4,17 @@ const React = require('react');
 const classnames = require('classnames');
 
 const baseClasses = {
-  'mdl-tooltip': true
+  'mdl-tooltip': true,
 };
 
 class Tooltip extends React.Component {
 
-  render(){
+  render() {
 
     const {
       children,
       className,
-      large
+      large,
     } = this.props;
 
     const classes = classnames(baseClasses, {
@@ -32,7 +32,8 @@ class Tooltip extends React.Component {
 Tooltip.propTypes = {
   className: React.PropTypes.string,
   htmlFor: React.PropTypes.string.isRequired,
-  large: React.PropTypes.bool
+  large: React.PropTypes.bool,
+  children: React.PropTypes.any,
 };
 
 module.exports = Tooltip;

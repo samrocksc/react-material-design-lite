@@ -11,7 +11,7 @@ const baseClasses = {
 
 class Button extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const { ripple } = this.props;
 
     const node = this._element;
@@ -22,12 +22,12 @@ class Button extends React.Component {
     }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const node = this._element;
     mdl.downgradeElements(node);
   }
 
-  render(){
+  render() {
     const {
       children,
       className,
@@ -39,6 +39,7 @@ class Button extends React.Component {
       accent,
       icon,
       mini,
+      ...rest
     } = this.props;
 
     const classes = classnames(baseClasses, {
@@ -55,7 +56,7 @@ class Button extends React.Component {
     const saveRef = element => (this._element = element);
 
     return (
-      <button {...this.props} ref={saveRef} className={classes}>
+      <button {...rest} ref={saveRef} className={classes}>
         {children}
       </button>
     );

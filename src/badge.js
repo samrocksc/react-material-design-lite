@@ -15,6 +15,7 @@ class Badge extends React.Component {
       className,
       background = true,
       overlap,
+      ...rest
     } = this.props;
 
 
@@ -25,7 +26,7 @@ class Badge extends React.Component {
 
 
     return (
-      <a {...this.props} className={classes}>
+      <a {...rest} className={classes}>
         {children}
       </a>
     );

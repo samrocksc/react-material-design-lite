@@ -18,78 +18,78 @@ const {
   IconToggle,
   Button,
   Badge,
-  Checkbox
-} = require('../');
+  Checkbox,
+} = require('../index');
 
 const exampleStyle = {
   margin: 'auto',
-  width: '800',
+  width: '800px',
   border: '1px solid black',
-  padding: '10px'
+  padding: '10px',
 };
 
-function Tree(props){
- return (
+function Tree() {
+  return (
     <div style={exampleStyle}>
       <h1>Examples</h1>
 
       <h4>Badges</h4>
-        <Badge data-badge="2">Badge</Badge>
+      <Badge data-badge="2">Badge</Badge>
 
       <h4>Buttons</h4>
-        <Button>Test Button</Button>
+      <Button>Test Button</Button>
 
       <h4>Checkboxes</h4>
-        <Checkbox label='With Id' id='checkboxId' />
-        <Checkbox label='Without Id' />
+      <Checkbox label="With Id" id="checkboxId" />
+      <Checkbox label="Without Id" />
 
       <h4>Icon Toggle</h4>
-        <IconToggle ripple id='testId' icon='star_rate' />
-        <IconToggle ripple icon='star_rate' />
-        <br/>
+      <IconToggle ripple id="testId" icon="star_rate" />
+      <IconToggle ripple icon="star_rate" />
+      <br />
 
       <h4>Progress</h4>
-        <Progress indeterminate/>
+      <Progress indeterminate />
 
       <h4>Radio Buttons</h4>
-        <Radio name='radio' label='Radio Button 1' value='1' ripple /><br/>
-        <Radio name='radio' label='Radio Button 2' value='2' ripple />
+      <Radio name="radio" label="Radio Button 1" value="1" ripple /><br />
+      <Radio name="radio" label="Radio Button 2" value="2" ripple />
 
       <h4>Sliders</h4>
-      <Slider/>
+      <Slider min="10" max="100" value="50"/>
 
       <h4>Spinners</h4>
-        <Spinner active/>
+      <Spinner active />
 
       <h4>Switches</h4>
-        <Switch label='Switch' ripple/>
-        <Switch id='switchid' label='With Id' ripple/>
+      <Switch label="Switch" ripple />
+      <Switch id="switchid" label="With Id" ripple/>
 
       <h4>Input Fields</h4>
-        <TextField>
-          <TextFieldInput/>
-          <TextFieldLabel>Regular Label</TextFieldLabel>
-        </TextField>
-        <br/>
-        <TextField floating>
-          <TextFieldInput id='someId'/>
-          <TextFieldLabel htmlFor='someId'>Floating Label</TextFieldLabel>
-        </TextField>
-        <br/>
-        <TextField>
-          <TextFieldInput pattern="-?[0-9]*(\.[0-9]+)?"/>
-          <TextFieldLabel>Error Message</TextFieldLabel>
-          <TextFieldError>Not a number</TextFieldError>
-        </TextField>
-        <br/>
-        <TextField>
-          <TextFieldTextarea rows='3'/>
-          <TextFieldLabel>Text Field Text Areas</TextFieldLabel>
-        </TextField>
+      <TextField>
+        <TextFieldInput />
+        <TextFieldLabel>Regular Label</TextFieldLabel>
+      </TextField>
+      <br />
+      <TextField floating>
+        <TextFieldInput id="someId" />
+        <TextFieldLabel htmlFor="someId">Floating Label</TextFieldLabel>
+      </TextField>
+      <br />
+      <TextField>
+        <TextFieldInput pattern="-?[0-9]*(\.[0-9]+)?" />
+        <TextFieldLabel>Error Message</TextFieldLabel>
+        <TextFieldError>Not a number</TextFieldError>
+      </TextField>
+      <br />
+      <TextField>
+        <TextFieldTextarea rows="3" />
+        <TextFieldLabel>Text Field Text Areas</TextFieldLabel>
+      </TextField>
 
       <h4>Tooltips</h4>
-        <span id='tt2'>Hover Me</span>
-        <Tooltip htmlFor='tt2'>Tooltip</Tooltip>
+      <span id="tt2">Hover Me</span>
+      <Tooltip htmlFor="tt2">Tooltip</Tooltip>
 
       <h4>More to come....</h4>
 

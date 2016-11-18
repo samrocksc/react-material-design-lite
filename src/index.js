@@ -1,6 +1,9 @@
 'use strict';
 
-require('material-design-lite/material.min.css');
+/* TODO Create a default stylesheet so the module can be used in offline apps as well
+ *require('material-design-lite/material.min.css');
+ *require('./icons.css');
+ */
 
 const components = {
   Icon: require('./icon'),
